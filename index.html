@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone 17 사전예약 비교</title>
+    <style>/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary: #64748b;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    
+    --white: #ffffff;
+    --black: #000000;
+    
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    
+    --radius-sm: 4px;
+    --radius: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--gray-50);
+    color: var(--gray-900);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Global Navigation */
+.global-nav {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+
+.nav-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.platform-tabs {
+    display: flex;
+    gap: 4px;
+}
+
+.platform-tab {
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-600);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.platform-tab:hover {
+    color: var(--gray-900);
+    background-color: var(--gray-100);
+}
+
+.platform-tab.active {
+    color: white;
+    background-color: var(--primary);
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Update Banner */
+.update-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.update-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.update-icon {
+    font-size: 20px;
+    animation: spin 2s linear infinite;
+}
+
+.update-text {
+    color: white;
+}
+
+.update-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 2px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.update-time {
+    font-size: 13px;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Platform Banner */
+.platform-banner {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    padding: 16px 0;
+}
+
+.platform-info {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.platform-details h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 4px;
+}
+
+.platform-details p {
+    font-size: 14px;
+    color: var(--gray-600);
+}
+
+.platform-discount {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.discount-badge {
+    background-color: var(--success);
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: var(--radius-lg);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.discount-text {
+    font-size: 14px;
+    color: var(--gray-600);
+}
+
+/* Main Content */
+.main-content {
+    padding: 32px 0 64px;
+}
+
+.models-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.model-group {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.model-header {
+    background-color: var(--gray-50);
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.model-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.model-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.model-table-header {
+    display: grid;
+    grid-template-columns: 40px 1.5fr 1fr 1fr 1.2fr 1fr;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: var(--gray-100);
+    border-bottom: 1px solid var(--gray-200);
+    gap: 16px;
+}
+
+.header-cell {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.header-cell:not(:first-child) {
+    text-align: center;
+}
+
+.model-item {
+    display: grid;
+    grid-template-columns: 40px 1.5fr 1fr 1fr 1.2fr 1fr;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--gray-100);
+    gap: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.model-item:last-child {
+    border-bottom: none;
+}
+
+.model-item:hover {
+    background-color: var(--gray-50);
+}
+
+.model-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.model-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--gray-900);
+}
+
+.model-specs {
+    font-size: 13px;
+    color: var(--gray-500);
+}
+
+.model-color {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-700);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    min-height: 32px;
+    position: relative;
+}
+
+.model-color .color-chip {
+    flex-shrink: 0;
+    order: 1;
+}
+
+.model-color span {
+    order: 2;
+    flex: 1;
+    text-align: left;
+}
+
+.color-chip {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1px solid var(--gray-300);
+    flex-shrink: 0;
+}
+
+/* Favorite Star */
+.favorite-star {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.favorite-star:hover {
+    background-color: var(--gray-100);
+}
+
+.star-icon {
+    font-size: 18px;
+    color: var(--gray-400);
+    transition: color 0.2s ease;
+}
+
+.star-icon.filled {
+    color: #fbbf24;
+}
+
+.star-icon:hover {
+    color: #f59e0b;
+}
+
+/* Favorites Section */
+.favorites-section {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    padding: 32px 0;
+}
+
+.favorites-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.favorites-table-header {
+    display: grid;
+    grid-template-columns: 40px 1fr 1.5fr 1fr 1fr 1.2fr 1fr;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: var(--gray-100);
+    border-bottom: 1px solid var(--gray-200);
+    gap: 16px;
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.favorite-item {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--gray-100);
+    padding: 16px 24px;
+    display: grid;
+    grid-template-columns: 40px 1fr 1.5fr 1fr 1fr 1.2fr 1fr;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.2s ease;
+}
+
+.favorite-item:last-child {
+    border-bottom: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.favorite-item:hover {
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+}
+
+.favorite-item .favorite-star .star-icon {
+    color: #fbbf24;
+}
+
+.favorite-item .favorite-star .star-icon.filled {
+    color: #f59e0b;
+}
+
+.platform-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.platform-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+.model-capacity {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-700);
+    text-align: center;
+}
+
+.model-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.original-price {
+    font-size: 12px;
+    color: var(--gray-400);
+    text-decoration: line-through;
+}
+
+.discounted-price {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.discount-amount {
+    font-size: 12px;
+    color: var(--success);
+    font-weight: 500;
+}
+
+.model-link {
+    display: flex;
+    justify-content: center;
+}
+
+.buy-button {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    min-width: 80px;
+}
+
+.buy-button:hover {
+    background-color: var(--primary-hover);
+}
+
+.buy-button:disabled {
+    background-color: var(--gray-300);
+    color: var(--gray-500);
+    cursor: not-allowed;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--white);
+    border-top: 1px solid var(--gray-200);
+    padding: 24px 0;
+    text-align: center;
+}
+
+.footer p {
+    font-size: 12px;
+    color: var(--gray-500);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        height: auto;
+        padding: 16px 24px;
+        gap: 16px;
+    }
+    
+    .platform-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .platform-info {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    
+    .platform-discount {
+        justify-content: center;
+    }
+    
+    .update-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .update-title {
+        font-size: 15px;
+    }
+    
+    .update-time {
+        font-size: 12px;
+    }
+    
+    .model-table-header {
+        display: none;
+    }
+    
+    .favorites-table-header {
+        display: none;
+    }
+    
+    .model-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        text-align: center;
+        padding: 20px 16px;
+    }
+    
+    .favorite-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        text-align: center;
+        padding: 16px;
+    }
+    
+    .model-color {
+        justify-content: center;
+    }
+    
+    .model-color span {
+        text-align: center;
+    }
+    
+    .platform-info {
+        align-items: center;
+    }
+    
+    .model-price {
+        align-items: center;
+    }
+    
+    .container {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-title {
+        font-size: 18px;
+    }
+    
+    .platform-tab {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .model-header {
+        padding: 16px 16px;
+    }
+    
+    .model-title {
+        font-size: 18px;
+    }
+    
+    .model-item {
+        padding: 16px 16px;
+    }
+}
+
+/* Loading State */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--gray-200);
+    border-top: 2px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.error-message {
+    background-color: var(--danger);
+    color: var(--white);
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    margin: 16px 0;
+    text-align: center;
+}</style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Global Navigation -->
+    <nav class="global-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1 class="nav-title">iPhone 17 사전예약</h1>
+            </div>
+            <div class="nav-platforms">
+                <div class="platform-tabs" id="platformTabs">
+                    <!-- Platform tabs will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Update Banner -->
+    <section class="update-banner">
+        <div class="container">
+            <div class="update-content">
+                <div class="update-icon">🔄</div>
+                <div class="update-text">
+                    <div class="update-title">실시간으로 업데이트하고 있습니다!</div>
+                    <div class="update-time">마지막 업데이트: 2025년 9월 12일 오전 11:41</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Info Banner -->
+    <section class="platform-banner" id="platformBanner">
+        <!-- Selected platform info will be shown here -->
+    </section>
+
+    <!-- Favorites Section -->
+    <section class="favorites-section" id="favoritesSection" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">즐겨찾기</h2>
+            <div class="favorites-container" id="favoritesContainer">
+                <!-- Favorite items will be shown here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- iPhone Models -->
+    <main class="main-content">
+        <div class="container">
+            <div class="models-container" id="modelsContainer">
+                <!-- Models will be dynamically loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 iPhone 17 사전예약 비교. 모든 가격은 참고용이며 실제 가격은 각 플랫폼에서 확인하세요.</p>
+        </div>
+    </footer>
+
+    <script>const embeddedData = {
+  "platforms": {
+    "coupang": {
+      "name": "쿠팡",
+      "description": "",
+      "discount": 0,
+      "highlight": "",
+      "links": {
+        "iphone17": {
+          "256": {
+            "라벤더": "https://www.coupang.com/vp/products/9024167492?itemId=26462329860&vendorItemId=93437609240",
+            "미스트 블루": "https://www.coupang.com/vp/products/9024167492?itemId=26462329857&vendorItemId=93437609261",
+            "블랙": "https://www.coupang.com/vp/products/9024167492?itemId=26462329853&vendorItemId=93437609238",
+            "세이지": "https://www.coupang.com/vp/products/9024167492?itemId=26462329864&vendorItemId=93437609244",
+            "화이트": "https://www.coupang.com/vp/products/9024167492?itemId=26462329849&vendorItemId=93437609262"
+          },
+          "512": {
+            "라벤더": "https://www.coupang.com/vp/products/9024167492?itemId=26462329877&vendorItemId=93437609242",
+            "미스트 블루": "https://www.coupang.com/vp/products/9024167492?itemId=26462329873&vendorItemId=93437609237",
+            "블랙": "https://www.coupang.com/vp/products/9024167492?itemId=26462329870&vendorItemId=93437609243",
+            "세이지": "https://www.coupang.com/vp/products/9024167492?itemId=26462329880&vendorItemId=93437609283",
+            "화이트": "https://www.coupang.com/vp/products/9024167492?itemId=26462329867&vendorItemId=93437609248"
+          }
+        },
+        "iphoneair": {
+          "256": {
+            "라이트 골드": "https://www.coupang.com/vp/products/9024167552?itemId=26462330161&vendorItemId=93437609624",
+            "스카이 블루": "https://www.coupang.com/vp/products/9024167552?itemId=26462330164&vendorItemId=93437609613",
+            "스페이스 블랙": "https://www.coupang.com/vp/products/9024167552?itemId=26462330155&vendorItemId=93437609609",
+            "클라우드 화이트": "https://www.coupang.com/vp/products/9024167552?itemId=26462330152&vendorItemId=93437609622"
+          },
+          "512": {
+            "라이트 골드": "https://www.coupang.com/vp/products/9024167552?itemId=26462330173&vendorItemId=93437609612",
+            "스카이 블루": "https://www.coupang.com/vp/products/9024167552?itemId=26462330176&vendorItemId=93437609615",
+            "스페이스 블랙": "https://www.coupang.com/vp/products/9024167552?itemId=26462330167&vendorItemId=93437609610",
+            "클라우드 화이트": "https://www.coupang.com/vp/products/9024167552?itemId=26462330171&vendorItemId=93437609616"
+          },
+          "1024": {
+            "라이트 골드": "https://www.coupang.com/vp/products/9024167552?itemId=26462330182&vendorItemId=93437609614",
+            "스카이 블루": "https://www.coupang.com/vp/products/9024167552?itemId=26462330183&vendorItemId=93437609620",
+            "스페이스 블랙": "https://www.coupang.com/vp/products/9024167552?itemId=26462330178&vendorItemId=93437609618",
+            "클라우드 화이트": "https://www.coupang.com/vp/products/9024167552?itemId=26462330180&vendorItemId=93437609611"
+          }
+        },
+        "iphone17pro": {
+          "256": {
+            "딥블루": "https://www.coupang.com/vp/products/9024167576?itemId=26462330288&vendorItemId=93437609644",
+            "실버": "https://www.coupang.com/vp/products/9024167576?itemId=26462330287&vendorItemId=93437609640",
+            "코스믹 오렌지": "https://www.coupang.com/vp/products/9024167576?itemId=26462330290&vendorItemId=93437609641"
+          },
+          "512": {
+            "딥블루": "https://www.coupang.com/vp/products/9024167576?itemId=26462330295&vendorItemId=93437609654",
+            "실버": "https://www.coupang.com/vp/products/9024167576?itemId=26462330292&vendorItemId=93437609653",
+            "코스믹 오렌지": "https://www.coupang.com/vp/products/9024167576?itemId=26462330294&vendorItemId=93437609643"
+          },
+          "1024": {
+            "딥블루": "https://www.coupang.com/vp/products/9024167576?itemId=26462330305&vendorItemId=93437609646",
+            "실버": "https://www.coupang.com/vp/products/9024167576?itemId=26462330301&vendorItemId=93437609649",
+            "코스믹 오렌지": "https://www.coupang.com/vp/products/9024167576?itemId=26462330303&vendorItemId=93437609645"
+          }
+        },
+        "iphone17promax": {
+          "256": {
+            "딥블루": "https://www.coupang.com/vp/products/9024167604?itemId=26462330375&vendorItemId=93437609814",
+            "실버": "https://www.coupang.com/vp/products/9024167604?itemId=26462330372&vendorItemId=93437609809",
+            "코스믹 오렌지": "https://www.coupang.com/vp/products/9024167604?itemId=26462330377&vendorItemId=93437609812"
+          },
+          "512": {
+            "딥블루": "https://www.coupang.com/vp/products/9024167604?itemId=26462330386&vendorItemId=93437609811",
+            "실버": "https://www.coupang.com/vp/products/9024167604?itemId=26462330382&vendorItemId=93437609830",
+            "코스믹 오렌지": "https://www.coupang.com/vp/products/9024167604?itemId=26462330388&vendorItemId=93437609819"
+          },
+          "1024": {
+            "딥블루": "https://www.coupang.com/vp/products/9024167604?itemId=26462330398&vendorItemId=93437609856",
+            "실버": "https://www.coupang.com/vp/products/9024167604?itemId=26462330393&vendorItemId=93437609820",
+            "코스믹 오렌지": "https://www.coupang.com/vp/products/9024167604?itemId=26462330396&vendorItemId=93437609818"
+          },
+          "2048": {
+            "딥블루": "https://www.coupang.com/vp/products/9024167604?itemId=26462330402&vendorItemId=93437609823",
+            "실버": "https://www.coupang.com/vp/products/9024167604?itemId=26462330400&vendorItemId=93437609844",
+            "코스믹 오렌지": "https://www.coupang.com/vp/products/9024167604?itemId=26462330401&vendorItemId=93437609851"
+          }
+        }
+      }
+    },
+    "apple": {
+      "name": "Apple Store",
+      "description": "",
+      "discount": 0,
+      "highlight": "",
+      "links": {
+        "iphone17": {
+          "256": {
+            "라벤더": "https://www.apple.com/kr/shop/buy-iphone/iphone-17/15.9cm-디스플레이-256gb-라벤더",
+            "미스트 블루": "https://www.apple.com/kr/shop/buy-iphone/iphone-17/15.9cm-디스플레이-256gb-미스트-블루",
+            "블랙": "https://www.apple.com/kr/shop/buy-iphone/iphone-17/15.9cm-디스플레이-256gb-블랙",
+            "세이지": "https://www.apple.com/kr/shop/buy-iphone/iphone-17/15.9cm-디스플레이-256gb-세이지",
+            "화이트": "https://www.apple.com/kr/shop/buy-iphone/iphone-17/15.9cm-디스플레이-256gb-화이트"
+          },
+          "512": {
+            "라벤더": "https://www.apple.com/kr/shop/buy-iphone/iphone-17/15.9cm-디스플레이-512gb-라벤더",
+            "미스트 블루": "https://www.apple.com/kr/shop/buy-iphone/iphone-17/15.9cm-디스플레이-512gb-미스트-블루",
+            "블랙": "https://www.apple.com/kr/shop/buy-iphone/iphone-17/15.9cm-디스플레이-512gb-블랙",
+            "세이지": "https://www.apple.com/kr/shop/buy-iphone/iphone-17/15.9cm-디스플레이-512gb-세이지",
+            "화이트": "https://www.apple.com/kr/shop/buy-iphone/iphone-17/15.9cm-디스플레이-512gb-화이트"
+          }
+        },
+        "iphoneair": {
+          "256": {
+            "라이트 골드": "https://www.apple.com/kr/shop/buy-iphone/iphone-air/6.5%ED%98%95-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-256gb-%EB%9D%BC%EC%9D%B4%ED%8A%B8-%EA%B3%A8%EB%93%9C",
+            "스카이 블루": "https://www.apple.com/kr/shop/buy-iphone/iphone-air/6.5%ED%98%95-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-256gb-%EC%8A%A4%EC%B9%B4%EC%9D%B4-%EB%B8%94%EB%A3%A8",
+            "스페이스 블랙": "https://www.apple.com/kr/shop/buy-iphone/iphone-air/6.5%ED%98%95-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-256gb-%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4-%EB%B8%94%EB%9E%99",
+            "클라우드 화이트": "https://www.apple.com/kr/shop/buy-iphone/iphone-air/6.5%ED%98%95-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-256gb-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%99%94%EC%9D%B4%ED%8A%B8"
+          },
+          "512": {
+            "라이트 골드": "https://www.apple.com/kr/shop/buy-iphone/iphone-air/6.5%ED%98%95-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-512gb-%EB%9D%BC%EC%9D%B4%ED%8A%B8-%EA%B3%A8%EB%93%9C",
+            "스카이 블루": "https://www.apple.com/kr/shop/buy-iphone/iphone-air/6.5%ED%98%95-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-512gb-%EC%8A%A4%EC%B9%B4%EC%9D%B4-%EB%B8%94%EB%A3%A8",
+            "스페이스 블랙": "https://www.apple.com/kr/shop/buy-iphone/iphone-air/6.5%ED%98%95-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-512gb-%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4-%EB%B8%94%EB%9E%99",
+            "클라우드 화이트": "https://www.apple.com/kr/shop/buy-iphone/iphone-air/6.5%ED%98%95-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-512gb-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%99%94%EC%9D%B4%ED%8A%B8"
+          },
+          "1024": {
+            "라이트 골드": "https://www.apple.com/kr/shop/buy-iphone/iphone-air/6.5%ED%98%95-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-1tb-%EB%9D%BC%EC%9D%B4%ED%8A%B8-%EA%B3%A8%EB%93%9C",
+            "스카이 블루": "https://www.apple.com/kr/shop/buy-iphone/iphone-air/6.5%ED%98%95-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-1tb-%EC%8A%A4%EC%B9%B4%EC%9D%B4-%EB%B8%94%EB%A3%A8",
+            "스페이스 블랙": "https://www.apple.com/kr/shop/buy-iphone/iphone-air/6.5%ED%98%95-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-1tb-%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4-%EB%B8%94%EB%9E%99",
+            "클라우드 화이트": "https://www.apple.com/kr/shop/buy-iphone/iphone-air/6.5%ED%98%95-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-1tb-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%99%94%EC%9D%B4%ED%8A%B8"
+          }
+        },
+        "iphone17pro": {
+          "256": {
+            "딥블루": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/15.9cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-256gb-%EB%94%A5-%EB%B8%94%EB%A3%A8",
+            "실버": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/15.9cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-256gb-%EC%8B%A4%EB%B2%84",
+            "코스믹 오렌지": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/15.9cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-256gb-%EC%BD%94%EC%8A%A4%EB%AF%B9-%EC%98%A4%EB%A0%8C%EC%A7%80"
+          },
+          "512": {
+            "딥블루": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/15.9cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-512gb-%EB%94%A5-%EB%B8%94%EB%A3%A8",
+            "실버": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/15.9cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-512gb-%EC%8B%A4%EB%B2%84",
+            "코스믹 오렌지": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/15.9cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-512gb-%EC%BD%94%EC%8A%A4%EB%AF%B9-%EC%98%A4%EB%A0%8C%EC%A7%80"
+          },
+          "1024": {
+            "딥블루": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/15.9cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-1tb-%EB%94%A5-%EB%B8%94%EB%A3%A8",
+            "실버": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/15.9cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-1tb-%EC%8B%A4%EB%B2%84",
+            "코스믹 오렌지": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/15.9cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-1tb-%EC%BD%94%EC%8A%A4%EB%AF%B9-%EC%98%A4%EB%A0%8C%EC%A7%80"
+          }
+        },
+        "iphone17promax": {
+          "256": {
+            "딥블루": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/17.4cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-256gb-%EB%94%A5-%EB%B8%94%EB%A3%A8",
+            "실버": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/17.4cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-256gb-%EC%8B%A4%EB%B2%84",
+            "코스믹 오렌지": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/17.4cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-256gb-%EC%BD%94%EC%8A%A4%EB%AF%B9-%EC%98%A4%EB%A0%8C%EC%A7%80"
+          },
+          "512": {
+            "딥블루": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/17.4cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-512gb-%EB%94%A5-%EB%B8%94%EB%A3%A8",
+            "실버": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/17.4cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-512gb-%EC%8B%A4%EB%B2%84",
+            "코스믹 오렌지": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/17.4cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-512gb-%EC%BD%94%EC%8A%A4%EB%AF%B9-%EC%98%A4%EB%A0%8C%EC%A7%80"
+          },
+          "1024": {
+            "딥블루": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/17.4cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-1tb-%EB%94%A5-%EB%B8%94%EB%A3%A8",
+            "실버": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/17.4cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-1tb-%EC%8B%A4%EB%B2%84",
+            "코스믹 오렌지": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/17.4cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-1tb-%EC%BD%94%EC%8A%A4%EB%AF%B9-%EC%98%A4%EB%A0%8C%EC%A7%80"
+          },
+          "2048": {
+            "딥블루": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/17.4cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-2tb-%EB%94%A5-%EB%B8%94%EB%A3%A8",
+            "실버": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/17.4cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-2tb-%EC%8B%A4%EB%B2%84",
+            "코스믹 오렌지": "https://www.apple.com/kr/shop/buy-iphone/iphone-17-pro/17.4cm-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-2tb-%EC%BD%94%EC%8A%A4%EB%AF%B9-%EC%98%A4%EB%A0%8C%EC%A7%80"
+          }
+        }
+      }
+    }
+  },
+  "prices": {
+    "iphone17": {
+      "256": 1290000,
+      "512": 1590000
+    },
+    "iphoneair": {
+      "256": 1590000,
+      "512": 1890000,
+      "1024": 2190000
+    },
+    "iphone17pro": {
+      "256": 1790000,
+      "512": 2090000,
+      "1024": 2390000
+    },
+    "iphone17promax": {
+      "256": 1990000,
+      "512": 2290000,
+      "1024": 2590000,
+      "2048": 3190000
+    }
+  },
+  "models": {
+    "iphone17": {
+      "name": "iPhone 17",
+      "colors": [
+        "라벤더",
+        "미스트 블루",
+        "블랙",
+        "세이지",
+        "화이트"
+      ],
+      "capacities": [
+        "256",
+        "512"
+      ]
+    },
+    "iphoneair": {
+      "name": "iPhone Air",
+      "colors": [
+        "라이트 골드",
+        "스카이 블루",
+        "스페이스 블랙",
+        "클라우드 화이트"
+      ],
+      "capacities": [
+        "256",
+        "512",
+        "1024"
+      ]
+    },
+    "iphone17pro": {
+      "name": "iPhone 17 Pro",
+      "colors": [
+        "딥블루",
+        "실버",
+        "코스믹 오렌지"
+      ],
+      "capacities": [
+        "256",
+        "512",
+        "1024"
+      ]
+    },
+    "iphone17promax": {
+      "name": "iPhone 17 Pro Max",
+      "colors": [
+        "딥블루",
+        "실버",
+        "코스믹 오렌지"
+      ],
+      "capacities": [
+        "256",
+        "512",
+        "1024",
+        "2048"
+      ]
+    }
+  }
+};
+
+// Global variables
+let data = {};
+let selectedPlatform = null;
+let favorites = new Set();
+
+// DOM elements
+const platformTabs = document.getElementById('platformTabs');
+const platformBanner = document.getElementById('platformBanner');
+const modelsContainer = document.getElementById('modelsContainer');
+const favoritesSection = document.getElementById('favoritesSection');
+const favoritesContainer = document.getElementById('favoritesContainer');
+
+// Initialize the app
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        await loadData();
+        loadFavorites();
+        renderPlatformTabs();
+        // Select the first platform by default
+        const firstPlatform = Object.keys(data.platforms)[0];
+        selectPlatform(firstPlatform);
+        renderFavorites();
+    } catch (error) {
+        console.error('Failed to initialize app:', error);
+        showError('데이터를 불러오는데 실패했습니다.');
+    }
+});
+
+// Load data from JSON file
+async function loadData() {
+    try {
+        data = embeddedData;
+    } catch (error) {
+        console.error('Error loading data:', error);
+        throw error;
+    }
+}
+
+// Render platform tabs in navigation
+function renderPlatformTabs() {
+    platformTabs.innerHTML = '';
+    
+    Object.entries(data.platforms).forEach(([platformId, platform]) => {
+        const tab = document.createElement('button');
+        tab.className = 'platform-tab';
+        tab.dataset.platform = platformId;
+        tab.textContent = platform.name;
+        
+        tab.addEventListener('click', () => selectPlatform(platformId));
+        platformTabs.appendChild(tab);
+    });
+}
+
+// Select a platform
+function selectPlatform(platformId) {
+    // Update selected platform
+    selectedPlatform = platformId;
+    
+    // Update active state
+    document.querySelectorAll('.platform-tab').forEach(tab => {
+        tab.classList.remove('active');
+        if (tab.dataset.platform === platformId) {
+            tab.classList.add('active');
+        }
+    });
+    
+    // Show platform info
+    showPlatformBanner(platformId);
+    
+    // Render models with selected platform
+    renderModels();
+    
+    // Update favorites with new platform pricing
+    renderFavorites();
+}
+
+// Show platform banner
+function showPlatformBanner(platformId) {
+    const platform = data.platforms[platformId];
+    
+    platformBanner.innerHTML = `
+        <div class="platform-info">
+            <div class="platform-details">
+                <h3>${platform.name}</h3>
+                <p>${platform.description}</p>
+            </div>
+            <div class="platform-discount">
+                ${platform.discount > 0 ? `<span class="discount-badge">${platform.discount}% 할인</span>` : ''}
+                <span class="discount-text">${platform.highlight}</span>
+            </div>
+        </div>
+    `;
+}
+
+// Render iPhone models
+function renderModels() {
+    if (!selectedPlatform) return;
+    
+    modelsContainer.innerHTML = '';
+    
+    Object.entries(data.models).forEach(([modelId, model]) => {
+        const modelGroup = document.createElement('div');
+        modelGroup.className = 'model-group';
+        
+        const modelItems = generateModelItems(modelId, model);
+        
+        modelGroup.innerHTML = `
+            <div class="model-header">
+                <h3 class="model-title">${model.name}</h3>
+            </div>
+            <div class="model-items">
+                <div class="model-table-header">
+                    <div class="header-cell"></div>
+                    <div class="header-cell">모델 정보</div>
+                    <div class="header-cell">색상</div>
+                    <div class="header-cell">용량</div>
+                    <div class="header-cell">가격</div>
+                    <div class="header-cell">구매</div>
+                </div>
+                ${modelItems}
+            </div>
+        `;
+        
+        modelsContainer.appendChild(modelGroup);
+    });
+}
+
+// Generate model items HTML
+function generateModelItems(modelId, model) {
+    let itemsHTML = '';
+    
+    // Create array of all combinations and sort them
+    const combinations = [];
+    model.capacities.forEach(capacity => {
+        model.colors.forEach(color => {
+            combinations.push({ capacity, color });
+        });
+    });
+    
+    // Sort by capacity (ascending) then by color name (alphabetical)
+    combinations.sort((a, b) => {
+        const capacityA = parseInt(a.capacity);
+        const capacityB = parseInt(b.capacity);
+        
+        if (capacityA !== capacityB) {
+            return capacityA - capacityB; // Sort by capacity ascending
+        }
+        return a.color.localeCompare(b.color, 'ko'); // Then by color name
+    });
+    
+    // Generate HTML for sorted combinations
+    combinations.forEach(({ capacity, color }) => {
+        const originalPrice = data.prices[modelId][capacity];
+        const discount = data.platforms[selectedPlatform].discount;
+        const discountedPrice = Math.round(originalPrice * (100 - discount) / 100);
+        const discountAmount = originalPrice - discountedPrice;
+        const link = getProductLink(modelId, capacity, color);
+        
+        const isFav = isFavorite(modelId, capacity, color);
+        
+        itemsHTML += `
+            <div class="model-item">
+                <div class="favorite-star" onclick="toggleFavorite('${modelId}', '${capacity}', '${color}')">
+                    <span class="star-icon ${isFav ? 'filled' : ''}">${isFav ? '★' : '☆'}</span>
+                </div>
+                <div class="model-info">
+                    <div class="model-name">${model.name}</div>
+                </div>
+                <div class="model-color">
+                    <div class="color-chip" style="background-color: ${getColorHex(color)}"></div>
+                    <span>${color}</span>
+                </div>
+                <div class="model-capacity">${formatCapacity(capacity)}</div>
+                <div class="model-price">
+                    ${discount > 0 ? `
+                        <div class="original-price">₩${formatPrice(originalPrice)}</div>
+                        <div class="discount-amount">-₩${formatPrice(discountAmount)}</div>
+                    ` : ''}
+                    <div class="discounted-price">₩${formatPrice(discountedPrice)}</div>
+                </div>
+                <div class="model-link">
+                    ${link ? 
+                        `<a href="${link}" target="_blank" class="buy-button">구매하기</a>` : 
+                        `<button class="buy-button" disabled>준비중</button>`
+                    }
+                </div>
+            </div>
+        `;
+    });
+    
+    return itemsHTML;
+}
+
+// Get product link for specific model, capacity, and color
+function getProductLink(modelId, capacity, color) {
+    try {
+        const platformLinks = data.platforms[selectedPlatform].links;
+        return platformLinks[modelId]?.[capacity]?.[color] || null;
+    } catch (error) {
+        console.error('Error getting product link:', error);
+        return null;
+    }
+}
+
+// Get product link for specific platform, model, capacity, and color
+function getProductLinkForPlatform(platformId, modelId, capacity, color) {
+    try {
+        const platformLinks = data.platforms[platformId].links;
+        return platformLinks[modelId]?.[capacity]?.[color] || null;
+    } catch (error) {
+        console.error('Error getting product link:', error);
+        return null;
+    }
+}
+
+// Toggle favorite from favorites section
+function toggleFavoriteFromFavorites(platformId, modelId, capacity, color) {
+    const favoriteKey = `${platformId}-${modelId}-${capacity}-${color}`;
+    
+    if (favorites.has(favoriteKey)) {
+        favorites.delete(favoriteKey);
+    } else {
+        favorites.add(favoriteKey);
+    }
+    
+    saveFavorites();
+    renderFavorites();
+    renderModels(); // Re-render models to update star icons
+}
+
+// Format price with thousands separator
+function formatPrice(price) {
+    return price.toLocaleString('ko-KR');
+}
+
+// Format capacity display
+function formatCapacity(capacity) {
+    const capacityMap = {
+        '1024': '1TB',
+        '2048': '2TB'
+    };
+    return capacityMap[capacity] || `${capacity}GB`;
+}
+
+// Get color hex code for color chip
+function getColorHex(colorName) {
+    const colorMap = {
+        // iPhone 17 colors
+        '라벤더': '#E6E6FA',
+        '미스트 블루': '#B0E0E6',
+        '블랙': '#000000',
+        '세이지': '#9CAF88',
+        '화이트': '#FFFFFF',
+        
+        // iPhone Air colors
+        '라이트 골드': '#F5E6D3',
+        '스카이 블루': '#87CEEB',
+        '스페이스 블랙': '#1C1C1E',
+        '클라우드 화이트': '#F8F8FF',
+        
+        // iPhone 17 Pro colors
+        '딥블루': '#003A6B',
+        '실버': '#C0C0C0',
+        '코스믹 오렌지': '#FF6B35'
+    };
+    
+    return colorMap[colorName] || '#CCCCCC';
+}
+
+// Load favorites from localStorage
+function loadFavorites() {
+    const savedFavorites = localStorage.getItem('iphone17-favorites');
+    if (savedFavorites) {
+        favorites = new Set(JSON.parse(savedFavorites));
+    }
+}
+
+// Save favorites to localStorage
+function saveFavorites() {
+    localStorage.setItem('iphone17-favorites', JSON.stringify([...favorites]));
+}
+
+// Toggle favorite status
+function toggleFavorite(modelId, capacity, color) {
+    const favoriteKey = `${selectedPlatform}-${modelId}-${capacity}-${color}`;
+    
+    if (favorites.has(favoriteKey)) {
+        favorites.delete(favoriteKey);
+    } else {
+        favorites.add(favoriteKey);
+    }
+    
+    saveFavorites();
+    renderFavorites();
+    renderModels(); // Re-render models to update star icons
+}
+
+// Check if item is favorite
+function isFavorite(modelId, capacity, color) {
+    const favoriteKey = `${selectedPlatform}-${modelId}-${capacity}-${color}`;
+    return favorites.has(favoriteKey);
+}
+
+// Render favorites section
+function renderFavorites() {
+    if (favorites.size === 0) {
+        favoritesSection.style.display = 'none';
+        return;
+    }
+    
+    favoritesSection.style.display = 'block';
+    favoritesContainer.innerHTML = `
+        <div class="favorites-table-header">
+            <div class="header-cell"></div>
+            <div class="header-cell">플랫폼</div>
+            <div class="header-cell">모델 정보</div>
+            <div class="header-cell">색상</div>
+            <div class="header-cell">용량</div>
+            <div class="header-cell">가격</div>
+            <div class="header-cell">구매</div>
+        </div>
+    `;
+    
+    favorites.forEach(favoriteKey => {
+        const [platformId, modelId, capacity, color] = favoriteKey.split('-');
+        const platform = data.platforms[platformId];
+        const model = data.models[modelId];
+        const originalPrice = data.prices[modelId][capacity];
+        const discount = platform.discount;
+        const discountedPrice = Math.round(originalPrice * (100 - discount) / 100);
+        const discountAmount = originalPrice - discountedPrice;
+        const link = getProductLinkForPlatform(platformId, modelId, capacity, color);
+        
+        const favoriteItem = document.createElement('div');
+        favoriteItem.className = 'favorite-item';
+        favoriteItem.innerHTML = `
+            <div class="favorite-star" onclick="toggleFavoriteFromFavorites('${platformId}', '${modelId}', '${capacity}', '${color}')">
+                <span class="star-icon filled">★</span>
+            </div>
+            <div class="platform-info">
+                <div class="platform-name">${platform.name}</div>
+            </div>
+            <div class="model-info">
+                <div class="model-name">${model.name}</div>
+            </div>
+            <div class="model-color">
+                <div class="color-chip" style="background-color: ${getColorHex(color)}"></div>
+                <span>${color}</span>
+            </div>
+            <div class="model-capacity">${formatCapacity(capacity)}</div>
+            <div class="model-price">
+                ${discount > 0 ? `
+                    <div class="original-price">₩${formatPrice(originalPrice)}</div>
+                    <div class="discount-amount">-₩${formatPrice(discountAmount)}</div>
+                ` : ''}
+                <div class="discounted-price">₩${formatPrice(discountedPrice)}</div>
+            </div>
+            <div class="model-link">
+                ${link ? 
+                    `<a href="${link}" target="_blank" class="buy-button">구매하기</a>` : 
+                    `<button class="buy-button" disabled>준비중</button>`
+                }
+            </div>
+        `;
+        
+        favoritesContainer.appendChild(favoriteItem);
+    });
+}
+
+// Show error message
+function showError(message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    
+    document.body.insertBefore(errorDiv, document.body.firstChild);
+    
+    setTimeout(() => {
+        errorDiv.remove();
+    }, 5000);
+}
+
+// Add keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        const platforms = Object.keys(data.platforms);
+        const currentIndex = platforms.indexOf(selectedPlatform);
+        
+        let newIndex;
+        if (e.key === 'ArrowLeft') {
+            newIndex = currentIndex > 0 ? currentIndex - 1 : platforms.length - 1;
+        } else {
+            newIndex = currentIndex < platforms.length - 1 ? currentIndex + 1 : 0;
+        }
+        
+        selectPlatform(platforms[newIndex]);
+    }
+});</script>
+</body>
+</html>
