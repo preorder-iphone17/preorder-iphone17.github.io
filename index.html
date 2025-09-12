@@ -832,7 +832,7 @@ body {
                 <div class="update-icon">🔄</div>
                 <div class="update-text">
                     <div class="update-title">실시간으로 업데이트하고 있습니다!</div>
-                    <div class="update-time">마지막 업데이트: 2025년 9월 12일 14:24</div>
+                    <div class="update-time">마지막 업데이트: 2025년 9월 12일 18:12</div>
                 </div>
             </div>
         </div>
@@ -869,7 +869,38 @@ body {
         </div>
     </footer>
 
-    <script>const embeddedData = {
+    <script>// Global variables
+let data = {};
+let selectedPlatform = null;
+let favorites = new Set();
+
+// DOM elements
+const platformTabs = document.getElementById('platformTabs');
+const platformBanner = document.getElementById('platformBanner');
+const modelsContainer = document.getElementById('modelsContainer');
+const favoritesSection = document.getElementById('favoritesSection');
+const favoritesContainer = document.getElementById('favoritesContainer');
+
+// Initialize the app
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        await loadData();
+        loadFavorites();
+        renderPlatformTabs();
+        // Select the first platform by default
+        const firstPlatform = Object.keys(data.platforms)[0];
+        selectPlatform(firstPlatform);
+        renderFavorites();
+    } catch (error) {
+        console.error('Failed to initialize app:', error);
+        showError('데이터를 불러오는데 실패했습니다.');
+    }
+});
+
+// Load data from JSON file
+async function loadData() {
+    try {
+        data = {
   "platforms": {
     "coupang": {
       "name": "쿠팡",
@@ -952,6 +983,88 @@ body {
             "딥블루": "https://www.coupang.com/vp/products/9024167604?itemId=26462330402&vendorItemId=93437609823",
             "실버": "https://www.coupang.com/vp/products/9024167604?itemId=26462330400&vendorItemId=93437609844",
             "코스믹 오렌지": "https://www.coupang.com/vp/products/9024167604?itemId=26462330401&vendorItemId=93437609851"
+          }
+        }
+      }
+    },
+    "11st": {
+      "name": "11번가",
+      "discount": 0,
+      "benefits": [],
+      "links": {
+        "iphone17": {
+          "256": {
+            "라벤더": "https://www.11st.co.kr/products/pa/8652552455",
+            "미스트 블루": "https://www.11st.co.kr/products/pa/8652552456",
+            "블랙": "https://www.11st.co.kr/products/pa/8652552473",
+            "세이지": "https://www.11st.co.kr/products/pa/8652552562",
+            "화이트": "https://www.11st.co.kr/products/pa/8652552453"
+          },
+          "512": {
+            "라벤더": "https://www.11st.co.kr/products/pa/8652552648",
+            "미스트 블루": "https://www.11st.co.kr/products/pa/8652552544",
+            "블랙": "https://www.11st.co.kr/products/pa/8652552555",
+            "세이지": "https://www.11st.co.kr/products/pa/8652552635",
+            "화이트": "https://www.11st.co.kr/products/pa/8652552575"
+          }
+        },
+        "iphoneair": {
+          "256": {
+            "라이트 골드": "https://www.11st.co.kr/products/pa/8652553130",
+            "스카이 블루": "https://www.11st.co.kr/products/pa/8652553135",
+            "스페이스 블랙": "https://www.11st.co.kr/products/pa/8652553074",
+            "클라우드 화이트": "https://www.11st.co.kr/products/pa/8652553127"
+          },
+          "512": {
+            "라이트 골드": "https://www.11st.co.kr/products/pa/8652553192",
+            "스카이 블루": "https://www.11st.co.kr/products/pa/8652553195",
+            "스페이스 블랙": "https://www.11st.co.kr/products/pa/8652553142",
+            "클라우드 화이트": "https://www.11st.co.kr/products/pa/8652553191"
+          },
+          "1024": {
+            "라이트 골드": "https://www.11st.co.kr/products/pa/8652553300",
+            "스카이 블루": "https://www.11st.co.kr/products/pa/8652553310",
+            "스페이스 블랙": "https://www.11st.co.kr/products/pa/8652553209",
+            "클라우드 화이트": "https://www.11st.co.kr/products/pa/8652553296"
+          }
+        },
+        "iphone17pro": {
+          "256": {
+            "딥블루": "https://www.11st.co.kr/products/pa/8652552728",
+            "실버": "https://www.11st.co.kr/products/pa/8652552645",
+            "코스믹 오렌지": "https://www.11st.co.kr/products/pa/8652552651"
+          },
+          "512": {
+            "딥블루": "https://www.11st.co.kr/products/pa/8652552735",
+            "실버": "https://www.11st.co.kr/products/pa/8652552725",
+            "코스믹 오렌지": "https://www.11st.co.kr/products/pa/8652552736"
+          },
+          "1024": {
+            "딥블루": "https://www.11st.co.kr/products/pa/8652552798",
+            "실버": "https://www.11st.co.kr/products/pa/8652552789",
+            "코스믹 오렌지": "https://www.11st.co.kr/products/pa/8652552793"
+          }
+        },
+        "iphone17promax": {
+          "256": {
+            "딥블루": "https://www.11st.co.kr/products/pa/8652552877",
+            "실버": "https://www.11st.co.kr/products/pa/8652552801",
+            "코스믹 오렌지": "https://www.11st.co.kr/products/pa/8652552882"
+          },
+          "512": {
+            "딥블루": "https://www.11st.co.kr/products/pa/8652552949",
+            "실버": "https://www.11st.co.kr/products/pa/8652552874",
+            "코스믹 오렌지": "https://www.11st.co.kr/products/pa/8652552878"
+          },
+          "1024": {
+            "딥블루": "https://www.11st.co.kr/products/pa/8652552960",
+            "실버": "https://www.11st.co.kr/products/pa/8652552950",
+            "코스믹 오렌지": "https://www.11st.co.kr/products/pa/8652552954"
+          },
+          "2048": {
+            "딥블루": "https://www.11st.co.kr/products/pa/8652553064",
+            "실버": "https://www.11st.co.kr/products/pa/8652553043",
+            "코스믹 오렌지": "https://www.11st.co.kr/products/pa/8652553049"
           }
         }
       }
@@ -1208,39 +1321,6 @@ body {
     }
   }
 };
-
-// Global variables
-let data = {};
-let selectedPlatform = null;
-let favorites = new Set();
-
-// DOM elements
-const platformTabs = document.getElementById('platformTabs');
-const platformBanner = document.getElementById('platformBanner');
-const modelsContainer = document.getElementById('modelsContainer');
-const favoritesSection = document.getElementById('favoritesSection');
-const favoritesContainer = document.getElementById('favoritesContainer');
-
-// Initialize the app
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        await loadData();
-        loadFavorites();
-        renderPlatformTabs();
-        // Select the first platform by default
-        const firstPlatform = Object.keys(data.platforms)[0];
-        selectPlatform(firstPlatform);
-        renderFavorites();
-    } catch (error) {
-        console.error('Failed to initialize app:', error);
-        showError('데이터를 불러오는데 실패했습니다.');
-    }
-});
-
-// Load data from JSON file
-async function loadData() {
-    try {
-        data = embeddedData;
     } catch (error) {
         console.error('Error loading data:', error);
         throw error;
@@ -1293,7 +1373,7 @@ function showPlatformBanner(platformId) {
         <div class="platform-info">
             <div class="platform-details">
                 <h3>${platform.name}</h3>
-                ${platform.benefits ? `
+                ${platform.benefits && platform.benefits.length > 0 ? `
             <div class="platform-benefits">
                 ${platform.discount > 0 ? `<div class="discount-benefit">${platform.discount}% 할인 혜택</div>` : ''}
                 ${platform.benefits.map(benefit => `<div class="benefit-item">${benefit}</div>`).join('')}
