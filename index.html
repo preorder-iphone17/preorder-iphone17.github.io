@@ -163,6 +163,106 @@ body {
     position: relative;
 }
 
+/* Tips Section */
+.tips-section {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 1px solid #f59e0b;
+    border-radius: var(--radius-lg);
+    margin: 24px auto;
+    padding: 24px;
+    max-width: 1200px;
+}
+
+.tips-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tips-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #92400e;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.tips-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tips-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: var(--radius);
+    border-left: 4px solid #f59e0b;
+}
+
+.tip-number {
+    background: #f59e0b;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.tip-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #92400e;
+    font-weight: 500;
+}
+
+.tips-action {
+    text-align: center;
+    margin: 16px 0;
+}
+
+.practice-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    transition: all 0.2s ease;
+}
+
+.practice-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.tips-disclaimer {
+    font-size: 11px;
+    color: #a16207;
+    text-align: center;
+    opacity: 0.7;
+    margin-top: 8px;
+}
+
 .platform-benefits {
     display: flex;
     flex-direction: column;
@@ -808,6 +908,9 @@ body {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+
+  // add analytics event
+  window.analytics = analytics;
     </script>
 </head>
 <body>
@@ -832,7 +935,7 @@ body {
                 <div class="update-icon">🔄</div>
                 <div class="update-text">
                     <div class="update-title">실시간으로 업데이트하고 있습니다!</div>
-                    <div class="update-time">마지막 업데이트: 2025년 9월 12일 18:12</div>
+                    <div class="update-time">마지막 업데이트: 2025년 9월 12일 18:49</div>
                 </div>
             </div>
         </div>
@@ -841,6 +944,45 @@ body {
     <!-- Platform Info Banner -->
     <section class="platform-banner" id="platformBanner">
         <!-- Selected platform info will be shown here -->
+    </section>
+
+    <!-- Coupang Tips Section -->
+    <section class="tips-section" id="tipsSection" style="display: none;">
+        <div class="container">
+            <div class="tips-container">
+                <div class="tips-header">
+                    <h3>🍯 쿠팡 사전예약 꿀팁</h3>
+                </div>
+                <div class="tips-content">
+                    <div class="tips-list">
+                        <div class="tip-item">
+                            <span class="tip-number">1</span>
+                            <span class="tip-text">현재 아이폰17과 같이 나온 에어팟 프로 3세대는 현재 예약구매가 가능함.</span>
+                        </div>
+                        <div class="tip-item">
+                            <span class="tip-number">2</span>
+                            <span class="tip-text">아이폰17도 거의 에어팟 프로 3세대와 거의 동일한 구매 프로세스를 가질거임.</span>
+                        </div>
+                        <div class="tip-item">
+                            <span class="tip-number">3</span>
+                            <span class="tip-text">에어팟 프로 3세대 상품으로 실제 구매 직전까지 연습해보세요!</span>
+                        </div>
+                        <div class="tip-item">
+                            <span class="tip-number">4</span>
+                            <span class="tip-text">바로 예약 구매를 누른 후 결제수단, 배송지가 잘 등록되어있어서 바로 결제하기 버튼을 누르면 가능한 상태인지 확인하기!</span>
+                        </div>
+                    </div>
+                    <div class="tips-action">
+                        <a href="https://link.coupang.com/a/cQhRl9" target="_blank" class="practice-button">
+                            사전예약 연습해보기 (에어팟 프로 3세대)
+                        </a>
+                    </div>
+                    <div class="tips-disclaimer">
+                        이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Favorites Section -->
@@ -891,11 +1033,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         const firstPlatform = Object.keys(data.platforms)[0];
         selectPlatform(firstPlatform);
         renderFavorites();
+        setupAnalyticsEvents();
     } catch (error) {
         console.error('Failed to initialize app:', error);
         showError('데이터를 불러오는데 실패했습니다.');
     }
 });
+
+// Setup analytics events
+function setupAnalyticsEvents() {
+    // Practice button click event
+    const practiceButton = document.querySelector('.practice-button');
+    if (practiceButton) {
+        practiceButton.addEventListener('click', function() {
+            if (window.analytics) {
+                window.analytics.logEvent('cp_click', { 
+                    page_path: window.location.pathname 
+                });
+            }
+        });
+    }
+}
 
 // Load data from JSON file
 async function loadData() {
@@ -906,8 +1064,7 @@ async function loadData() {
       "name": "쿠팡",
       "discount": 0,
       "benefits": [
-        "로켓배송",
-        "혜택이 나오면 업데이트 하겠습니다!"
+        "로켓배송"
       ],
       "links": {
         "iphone17": {
@@ -1382,6 +1539,14 @@ function showPlatformBanner(platformId) {
             </div>
         </div>
     `;
+    
+    // Show tips section only for Coupang
+    const tipsSection = document.getElementById('tipsSection');
+    if (platformId === 'coupang') {
+        tipsSection.style.display = 'block';
+    } else {
+        tipsSection.style.display = 'none';
+    }
 }
 
 // Render iPhone models
