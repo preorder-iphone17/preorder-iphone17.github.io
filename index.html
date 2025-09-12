@@ -160,6 +160,93 @@ body {
     background-color: var(--white);
     border-bottom: 1px solid var(--gray-200);
     padding: 16px 0;
+    position: relative;
+}
+
+.platform-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.benefit-item {
+    font-size: 13px;
+    color: var(--gray-700);
+    line-height: 1.4;
+    padding: 12px 16px;
+    font-weight: 500;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: var(--gray-700);
+    border-radius: 8px;
+    border: 1px solid var(--gray-200);
+    transition: all 0.2s ease;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.benefit-item::before {
+    content: "✓";
+    margin-right: 8px;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.benefit-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-item::after {
+    content: "✨";
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 10px;
+    opacity: 0.6;
+}
+
+.discount-benefit {
+    font-size: 14px;
+    color: white;
+    line-height: 1.4;
+    padding: 12px 16px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
+    border-radius: 8px;
+    border: 1px solid #ff3742;
+    transition: all 0.2s ease;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: normal;
+    box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+}
+
+.discount-benefit::before {
+    content: "🔥";
+    margin-right: 8px;
+    font-weight: 600;
+}
+
+.discount-benefit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(255, 71, 87, 0.4);
+}
+
+.discount-benefit::after {
+    content: "⚡";
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 12px;
+    opacity: 0.8;
 }
 
 .platform-info {
@@ -421,6 +508,32 @@ body {
     color: var(--gray-700);
 }
 
+.discount-highlight {
+    background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(255, 71, 87, 0.25);
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.discount-percentage {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.discount-label {
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.95;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .model-capacity {
     font-size: 14px;
     font-weight: 500;
@@ -445,6 +558,24 @@ body {
     font-size: 16px;
     font-weight: 600;
     color: var(--gray-900);
+}
+
+.price-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.discount-tag {
+    background: var(--gray-100);
+    color: var(--gray-600);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid var(--gray-200);
 }
 
 .discount-amount {
@@ -520,6 +651,25 @@ body {
     
     .platform-discount {
         justify-content: center;
+    }
+    
+    .platform-benefits {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        margin: 12px 0;
+        max-width: 100%;
+    }
+    
+    .benefit-item {
+        font-size: 12px;
+        padding: 10px 12px;
+        line-height: 1.3;
+    }
+    
+    .discount-benefit {
+        font-size: 13px;
+        padding: 10px 12px;
+        line-height: 1.3;
     }
     
     .update-content {
@@ -682,7 +832,7 @@ body {
                 <div class="update-icon">🔄</div>
                 <div class="update-text">
                     <div class="update-title">실시간으로 업데이트하고 있습니다!</div>
-                    <div class="update-time">마지막 업데이트: 2025년 9월 12일 오전 12:53</div>
+                    <div class="update-time">마지막 업데이트: 2025년 9월 12일 14:24</div>
                 </div>
             </div>
         </div>
@@ -723,9 +873,11 @@ body {
   "platforms": {
     "coupang": {
       "name": "쿠팡",
-      "description": "",
       "discount": 0,
-      "highlight": "",
+      "benefits": [
+        "로켓배송",
+        "혜택이 나오면 업데이트 하겠습니다!"
+      ],
       "links": {
         "iphone17": {
           "256": {
@@ -804,11 +956,99 @@ body {
         }
       }
     },
+    "aestore": {
+      "name": "에이스토어",
+      "discount": 0,
+      "benefits": [
+        "무이자 10개월 카드(이마트e, KB국민, 신한, 현대, 롯데, 하나 - 단일 품목 50만원 이상 결제 시)",
+        "무이자 18개월 카드(이마트e, 삼성, KB국민, 신한, 현대, 롯데, 하나 - 단일 품목 120만원 이상 결제 시)",
+        "아이폰 17 시리즈 + 클리어 케이스 동시 구매시, 클리어 케이스 100원 (17air는 프로스트케이스로 구매가능)",
+        "Apple Care+ 결제시 20% 할인"
+      ],
+      "links": {
+        "iphone17": {
+          "256": {
+            "라벤더": "",
+            "미스트 블루": "",
+            "블랙": "",
+            "세이지": "",
+            "화이트": ""
+          },
+          "512": {
+            "라벤더": "",
+            "미스트 블루": "",
+            "블랙": "",
+            "세이지": "",
+            "화이트": ""
+          }
+        },
+        "iphoneair": {
+          "256": {
+            "라이트 골드": "",
+            "스카이 블루": "",
+            "스페이스 블랙": "",
+            "클라우드 화이트": ""
+          },
+          "512": {
+            "라이트 골드": "",
+            "스카이 블루": "",
+            "스페이스 블랙": "",
+            "클라우드 화이트": ""
+          },
+          "1024": {
+            "라이트 골드": "",
+            "스카이 블루": "",
+            "스페이스 블랙": "",
+            "클라우드 화이트": ""
+          }
+        },
+        "iphone17pro": {
+          "256": {
+            "딥블루": "",
+            "실버": "",
+            "코스믹 오렌지": ""
+          },
+          "512": {
+            "딥블루": "",
+            "실버": "",
+            "코스믹 오렌지": ""
+          },
+          "1024": {
+            "딥블루": "",
+            "실버": "",
+            "코스믹 오렌지": ""
+          }
+        },
+        "iphone17promax": {
+          "256": {
+            "딥블루": "",
+            "실버": "",
+            "코스믹 오렌지": ""
+          },
+          "512": {
+            "딥블루": "",
+            "실버": "",
+            "코스믹 오렌지": ""
+          },
+          "1024": {
+            "딥블루": "",
+            "실버": "",
+            "코스믹 오렌지": ""
+          },
+          "2048": {
+            "딥블루": "",
+            "실버": "",
+            "코스믹 오렌지": ""
+          }
+        }
+      }
+    },
     "apple": {
       "name": "Apple Store",
-      "description": "",
       "discount": 0,
-      "highlight": "",
+      "benefits": [
+        "할인 없음"
+      ],
       "links": {
         "iphone17": {
           "256": {
@@ -1053,11 +1293,12 @@ function showPlatformBanner(platformId) {
         <div class="platform-info">
             <div class="platform-details">
                 <h3>${platform.name}</h3>
-                <p>${platform.description}</p>
+                ${platform.benefits ? `
+            <div class="platform-benefits">
+                ${platform.discount > 0 ? `<div class="discount-benefit">${platform.discount}% 할인 혜택</div>` : ''}
+                ${platform.benefits.map(benefit => `<div class="benefit-item">${benefit}</div>`).join('')}
             </div>
-            <div class="platform-discount">
-                ${platform.discount > 0 ? `<span class="discount-badge">${platform.discount}% 할인</span>` : ''}
-                <span class="discount-text">${platform.highlight}</span>
+                ` : ''}
             </div>
         </div>
     `;
@@ -1144,15 +1385,18 @@ function generateModelItems(modelId, model) {
                 <div class="model-capacity">${formatCapacity(capacity)}</div>
                 <div class="model-price">
                     ${discount > 0 ? `
-                        <div class="original-price">₩${formatPrice(originalPrice)}</div>
+                        <div class="price-header">
+                            <div class="original-price">₩${formatPrice(originalPrice)}</div>
+                            <div class="discount-tag">${discount}%</div>
+                        </div>
                         <div class="discount-amount">-₩${formatPrice(discountAmount)}</div>
                     ` : ''}
                     <div class="discounted-price">₩${formatPrice(discountedPrice)}</div>
                 </div>
                 <div class="model-link">
-                    ${link ? 
+                    ${link && link.trim() !== '' ? 
                         `<a href="${link}" target="_blank" class="buy-button">구매하기</a>` : 
-                        `<button class="buy-button" disabled>준비중</button>`
+                        `<button class="buy-button" disabled>링크 찾는중</button>`
                     }
                 </div>
             </div>
@@ -1321,15 +1565,18 @@ function renderFavorites() {
             <div class="model-capacity">${formatCapacity(capacity)}</div>
             <div class="model-price">
                 ${discount > 0 ? `
-                    <div class="original-price">₩${formatPrice(originalPrice)}</div>
+                    <div class="price-header">
+                        <div class="original-price">₩${formatPrice(originalPrice)}</div>
+                        <div class="discount-tag">${discount}%</div>
+                    </div>
                     <div class="discount-amount">-₩${formatPrice(discountAmount)}</div>
                 ` : ''}
                 <div class="discounted-price">₩${formatPrice(discountedPrice)}</div>
             </div>
             <div class="model-link">
-                ${link ? 
+                ${link && link.trim() !== '' ? 
                     `<a href="${link}" target="_blank" class="buy-button">구매하기</a>` : 
-                    `<button class="buy-button" disabled>준비중</button>`
+                    `<button class="buy-button" disabled>링크 찾는중</button>`
                 }
             </div>
         `;
